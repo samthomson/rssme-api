@@ -20,7 +20,7 @@ Route::get('/', function () {
 });
 
 
-Route::group(['prefix' => 'app'], function () {
+Route::group(['prefix' => 'app', 'middleware' => 'cors'], function () {
 
     Route::get('/auth/register', 'AuthController@register');
 
@@ -29,5 +29,13 @@ Route::group(['prefix' => 'app'], function () {
     Route::get('/auth/logout', function () {
         return view('welcome');
     });
+
+    Route::get('/auth/authenticated', [function () {
+        return response()->json([
+            'authStatus' => true
+        ]);
+    }]);
+
+    Route::get('/auth/getauthed', 'AuthController@getAuthenticatedUser');
 
 });
