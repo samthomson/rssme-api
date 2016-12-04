@@ -12,5 +12,22 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    if(Auth::check()) {
+        echo "logged in";
+    }else{
+        echo "logged out";
+    }
+});
+
+
+Route::group(['prefix' => 'app'], function () {
+
+    Route::get('/auth/register', 'AuthController@register');
+
+    Route::get('/auth/login', 'AuthController@authenticate');
+
+    Route::get('/auth/logout', function () {
+        return view('welcome');
+    });
+
 });
