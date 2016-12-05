@@ -14,6 +14,7 @@ use App\User;
 
 use JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
+use Auth;
 
 class AuthController extends Controller
 {
@@ -65,10 +66,25 @@ class AuthController extends Controller
         }
 
         // all good so return the token
-        return response()->json(compact('token'));
+
+        $bAuthStatus = false;
+        $mToken = null;
+
+        if(Auth::attempt([
+            'email' => $request->get('email'), 'password' => $request->get('password')
+        ])) {
+            $bAuthStatus = true;
+            $mToken = compact('token')['token'];
+        }
+
+
+        return response()->json([
+            'authStatus' => $bAuthStatus,
+            'token' => $mToken
+        ]);
     }
 
-    public function getAuthenticatedUser()
+    public function getAuthenticatedUser(Request $request)
     {
         try {
 
@@ -92,5 +108,7 @@ class AuthController extends Controller
 
         // the token is valid and we have found the user via the sub claim
         return response()->json(compact('user'));
+
     }
+
 }

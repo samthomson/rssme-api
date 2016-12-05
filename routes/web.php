@@ -10,6 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+// CORS
+header('Access-Control-Allow-Origin: http://localhost:4200/');
+header('Access-Control-Allow-Credentials: true');
 
 Route::get('/', function () {
     if(Auth::check()) {
@@ -21,6 +24,7 @@ Route::get('/', function () {
 
 
 Route::group(['prefix' => 'app', 'middleware' => 'cors'], function () {
+
 
     Route::get('/auth/register', 'AuthController@register');
 
@@ -37,5 +41,6 @@ Route::group(['prefix' => 'app', 'middleware' => 'cors'], function () {
     }]);
 
     Route::get('/auth/getauthed', 'AuthController@getAuthenticatedUser');
+
 
 });
