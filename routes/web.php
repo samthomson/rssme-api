@@ -43,5 +43,9 @@ Route::group(['prefix' => 'app', 'middleware' => 'cors'], function () {
 
     Route::get('/auth/getauthed', 'AuthController@getAuthenticatedUser');
 
+    Route::get('/feedsandcategories', 'AppController@everything');
+
+    Route::post('/feeds/new', 'AppController@newFeed');
+
 
 });
