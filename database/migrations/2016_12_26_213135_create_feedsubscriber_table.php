@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFeeduserTable extends Migration
+class CreateFeedsubscriberTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateFeeduserTable extends Migration
      */
     public function up()
     {
-        Schema::create('feed_user', function (Blueprint $table) {
+        Schema::create('feed_subscriber', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('feed_id');
             $table->integer('user_id');
@@ -28,6 +28,6 @@ class CreateFeeduserTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('feed_user');
+        Schema::dropIfExists('feed_subscriber');
     }
 }

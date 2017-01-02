@@ -10,7 +10,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Validator;
 use Hash;
 use Illuminate\Http\Request;
-use App\User;
+use App\Models\User;
 
 use JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
@@ -18,8 +18,6 @@ use Auth;
 
 class AuthController extends Controller
 {
-    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
-
 
     public function register(Request $request) {
 
@@ -31,8 +29,9 @@ class AuthController extends Controller
 
         if ($validator->fails()) {
             return response()->json([
-                "errors" => $validator->errors()
-            ], 422);
+                "errors" => $validator->errors(),
+                'code' => 422
+            ], 200);
         }
 
         // stil here? Validation was ok..
@@ -43,10 +42,12 @@ class AuthController extends Controller
 
         $oUser->save();
 
-        // check email
-        return response()->json([
-            'Ok'
-        ]);
+        // all good, user registered/created
+        return response()->json(
+            [
+                'code' => 200
+            ],200
+        );
 
     }
 
@@ -62,7 +63,12 @@ class AuthController extends Controller
             }
         } catch (JWTException $e) {
             // something went wrong whilst attempting to encode the token
-            return response()->json(['error' => 'could_not_create_token'], 500);
+            return response()->json(
+                [
+                    'error' => 'could_not_create_token',
+                    'code' => 500
+                ],
+                200);
         }
 
         // all good so return the token

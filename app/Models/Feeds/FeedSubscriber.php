@@ -4,9 +4,9 @@ namespace App\Models\Feeds;
 
 use Illuminate\Database\Eloquent\Model;
 
-class UserFeed extends Model
+class FeedSubscriber extends Model
 {
-    protected $table = 'feed_user';
+    protected $table = 'feed_subscriber';
     public $timestamps = false;
 
     public function feed()

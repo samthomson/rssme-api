@@ -12,8 +12,8 @@
 */
 // CORS
 #header('Access-Control-Allow-Credentials: true');
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Headers: Content-Type, X-Auth-Token, Origin, Authorization");
+//header("Access-Control-Allow-Origin: *");
+//header("Access-Control-Allow-Headers: Content-Type, X-Auth-Token, Origin, Authorization");
 
 Route::get('/', function () {
     if(Auth::check()) {
@@ -27,7 +27,7 @@ Route::get('/', function () {
 Route::group(['prefix' => 'app', 'middleware' => 'cors'], function () {
 
 
-    Route::get('/auth/register', 'AuthController@register');
+    Route::post('/auth/register', 'AuthController@register');
 
     Route::get('/auth/login', 'AuthController@authenticate');
 
