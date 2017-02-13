@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Crazy Funny Pictures</title>
+	<atom:link href="http://www.eatliver.com/feed/" rel="self" type="application/rss+xml" />
+	<link>http://www.eatliver.com</link>
+	<description></description>
+	<lastBuildDate>Mon, 13 Feb 2017 10:53:33 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.7.2</generator>
+	<item>
+		<title>When You&#8217;re Looking For Something Sweet</title>
+		<link>http://www.eatliver.com/bee-vomit/</link>
+		<comments>http://www.eatliver.com/bee-vomit/#comments</comments>
+		<pubDate>Mon, 13 Feb 2017 10:53:33 +0000</pubDate>
+		<dc:creator><![CDATA[liver]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+
+		<guid isPermaLink="false">http://www.eatliver.com/?p=22591</guid>
+		<description><![CDATA[]]></description>
+				<content:encoded><![CDATA[<p style="text-align: center;"><a href="http://www.eatliver.com/bee-vomit/"><img class="alignnone size-full wp-image-22592" src="http://cdn77.eatliver.com/wp-content/uploads/2017/02/sweet.jpg" alt="" width="660" height="880" /></a></p>
+]]></content:encoded>
+			<wfw:commentRss>http://www.eatliver.com/bee-vomit/feed/</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+		<item>
+		<title>Cats Posing Better Than Pin-Up Girls</title>
+		<link>http://www.eatliver.com/pin-up/</link>
+		<comments>http://www.eatliver.com/pin-up/#comments</comments>
+		<pubDate>Sun, 12 Feb 2017 17:25:51 +0000</pubDate>
+		<dc:creator><![CDATA[liver]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+
+		<guid isPermaLink="false">http://www.eatliver.com/?p=22571</guid>
+		<description><![CDATA[(source)]]></description>
+				<content:encoded><![CDATA[<p style="text-align: center;"><a href="http://www.eatliver.com/pin-up/"><img class="alignnone size-full wp-image-22572" src="http://cdn77.eatliver.com/wp-content/uploads/2017/02/pinup1.jpg" alt="" width="660" height="440" /></a></p>
+<p style="text-align: center;"><span id="more-22571"></span></p>
+<p style="text-align: center;"><img class="alignnone size-full wp-image-22573" src="http://cdn77.eatliver.com/wp-content/uploads/2017/02/pinup2.jpg" alt="" width="660" height="400" /></p>
+<p style="text-align: center;"><img class="alignnone size-full wp-image-22574" src="http://cdn77.eatliver.com/wp-content/uploads/2017/02/pinup3.jpg" alt="" width="660" height="430" /></p>
+<p style="text-align: center;"><img class="alignnone size-full wp-image-22589" src="http://cdn77.eatliver.com/wp-content/uploads/2017/02/pinup4.jpg" alt="" width="660" height="437" /></p>
+<p style="text-align: center;"><img class="alignnone size-full wp-image-22576" src="http://cdn77.eatliver.com/wp-content/uploads/2017/02/pinup5.jpg" alt="" width="660" height="400" /></p>
+<p style="text-align: center;"><img class="alignnone size-full wp-image-22577" src="http://cdn77.eatliver.com/wp-content/uploads/2017/02/pinup6.jpg" alt="" width="660" height="397" /></p>
+<p style="text-align: center;"><img class="alignnone size-full wp-image-22578" src="http://cdn77.eatliver.com/wp-content/uploads/2017/02/pinup7.jpg" alt="" width="660" height="364" /></p>
+<p style="text-align: center;"><img class="alignnone size-full wp-image-22579" src="http://cdn77.eatliver.com/wp-content/uploads/2017/02/pinup8.jpg" alt="" width="660" height="425" /></p>
+<p style="text-align: center;"><img class="alignnone size-full wp-image-22580" src="http://cdn77.eatliver.com/wp-content/uploads/2017/02/pinup9.jpg" alt="" width="660" height="347" /></p>
+<p style="text-align: center;"><img class="alignnone size-full wp-image-22581" src="http://cdn77.eatliver.com/wp-content/uploads/2017/02/pinup10.jpg" alt="" width="660" height="440" /></p>
+<p style="text-align: center;"><img class="alignnone size-full wp-image-22582" src="http://cdn77.eatliver.com/wp-content/uploads/2017/02/pinup11.jpg" alt="" width="660" height="440" /></p>
+<p style="text-align: center;"><img class="alignnone size-full wp-image-22583" src="http://cdn77.eatliver.com/wp-content/uploads/2017/02/pinup12.jpg" alt="" width="660" height="495" /></p>
+<p style="text-align: center;"><img class="alignnone size-full wp-image-22584" src="http://cdn77.eatliver.com/wp-content/uploads/2017/02/pinup13.jpg" alt="" width="660" height="440" /></p>
+<p style="text-align: center;"><img class="alignnone size-full wp-image-22585" src="http://cdn77.eatliver.com/wp-content/uploads/2017/02/pinup14.jpg" alt="" width="660" height="419" /></p>
+<p style="text-align: center;"><img class="alignnone size-full wp-image-22586" src="http://cdn77.eatliver.com/wp-content/uploads/2017/02/pinup15.jpg" alt="" width="660" height="483" /></p>
+<p style="text-align: left;">(<a href="https://www.facebook.com/catsthatlooklikepinupgirls/" target="_blank">source</a>)</p>
+]]></content:encoded>
+			<wfw:commentRss>http://www.eatliver.com/pin-up/feed/</wfw:commentRss>
+		<slash:comments>4</slash:comments>
+		</item>
+		<item>
+		<title>Learn To Make Other People Think You Have a Girlfriend On Valentine&#8217;s Day</title>
+		<link>http://www.eatliver.com/fake-girlfriend-guide/</link>
+		<comments>http://www.eatliver.com/fake-girlfriend-guide/#comments</comments>
+		<pubDate>Sun, 12 Feb 2017 14:12:10 +0000</pubDate>
+		<dc:creator><![CDATA[liver]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+
+		<guid isPermaLink="false">http://www.eatliver.com/?p=22558</guid>
+		<description><![CDATA[]]></description>
+				<content:encoded><![CDATA[<p style="text-align: center;"><a href="http://www.eatliver.com/fake-girlfriend-guide/"><img class="alignnone size-full wp-image-22560" src="http://cdn77.eatliver.com/wp-content/uploads/2017/02/alone1.jpg" alt="" width="660" height="960" /></a></p>
+<p style="text-align: center;"><span id="more-22558"></span></p>
+<p style="text-align: center;"><img class="alignnone size-full wp-image-22561" src="http://cdn77.eatliver.com/wp-content/uploads/2017/02/alone2.jpg" alt="" width="660" height="990" /></p>
+<p style="text-align: center;"><img class="alignnone size-full wp-image-22562" src="http://cdn77.eatliver.com/wp-content/uploads/2017/02/alone3.jpg" alt="" width="660" height="1143" /></p>
+<p style="text-align: center;"><img class="alignnone size-full wp-image-22563" src="http://cdn77.eatliver.com/wp-content/uploads/2017/02/alone4.jpg" alt="" width="660" height="990" /></p>
+<p style="text-align: center;"><img class="alignnone size-full wp-image-22564" src="http://cdn77.eatliver.com/wp-content/uploads/2017/02/alone5.jpg" alt="" width="660" height="660" /></p>
+<p style="text-align: center;"><img class="alignnone size-full wp-image-22565" src="http://cdn77.eatliver.com/wp-content/uploads/2017/02/alone6.jpg" alt="" width="660" height="837" /></p>
+<p style="text-align: center;"><img class="alignnone size-full wp-image-22566" src="http://cdn77.eatliver.com/wp-content/uploads/2017/02/alone7.jpg" alt="" width="660" height="837" /></p>
+<p style="text-align: center;"><img class="alignnone size-full wp-image-22567" src="http://cdn77.eatliver.com/wp-content/uploads/2017/02/alone8.jpg" alt="" width="660" height="990" /></p>
+<p style="text-align: center;"><img class="alignnone size-full wp-image-22568" src="http://cdn77.eatliver.com/wp-content/uploads/2017/02/alone9.jpg" alt="" width="660" height="990" /></p>
+]]></content:encoded>
+			<wfw:commentRss>http://www.eatliver.com/fake-girlfriend-guide/feed/</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+		<item>
+		<title>When Your Friend Takes His Glasses Off&#8230;</title>
+		<link>http://www.eatliver.com/panda-eyes/</link>
+		<comments>http://www.eatliver.com/panda-eyes/#respond</comments>
+		<pubDate>Fri, 10 Feb 2017 14:57:42 +0000</pubDate>
+		<dc:creator><![CDATA[liver]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+
+		<guid isPermaLink="false">http://www.eatliver.com/?p=22552</guid>
+		<description><![CDATA[]]></description>
+				<content:encoded><![CDATA[<p style="text-align: center;"><a href="http://www.eatliver.com/panda-eyes/"><img class="alignnone size-full wp-image-22553" src="http://cdn77.eatliver.com/wp-content/uploads/2017/02/panda-glasses.jpg" alt="" width="660" height="1007" /></a></p>
+]]></content:encoded>
+			<wfw:commentRss>http://www.eatliver.com/panda-eyes/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Comedians Sharing Valuable Life Lessons</title>
+		<link>http://www.eatliver.com/wise-advice/</link>
+		<comments>http://www.eatliver.com/wise-advice/#comments</comments>
+		<pubDate>Fri, 10 Feb 2017 12:17:22 +0000</pubDate>
+		<dc:creator><![CDATA[liver]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+
+		<guid isPermaLink="false">http://www.eatliver.com/?p=22538</guid>
+		<description><![CDATA[]]></description>
+				<content:encoded><![CDATA[<p style="text-align: center;"><a href="http://www.eatliver.com/wise-advice/"><img class="alignnone size-full wp-image-22540" src="http://cdn77.eatliver.com/wp-content/uploads/2017/02/comedy1.jpg" alt="" width="660" height="495" /></a></p>
+<p style="text-align: center;"><span id="more-22538"></span></p>
+<p style="text-align: center;"><img class="alignnone size-full wp-image-22541" src="http://cdn77.eatliver.com/wp-content/uploads/2017/02/comedy2.jpg" alt="" width="660" height="495" /></p>
+<p style="text-align: center;"><img class="alignnone size-full wp-image-22542" src="http://cdn77.eatliver.com/wp-content/uploads/2017/02/comedy3.jpg" alt="" width="660" height="495" /></p>
+<p style="text-align: center;"><img class="alignnone size-full wp-image-22543" src="http://cdn77.eatliver.com/wp-content/uploads/2017/02/comedy4.jpg" alt="" width="660" height="495" /></p>
+<p style="text-align: center;"><img class="alignnone size-full wp-image-22544" src="http://cdn77.eatliver.com/wp-content/uploads/2017/02/comedy5.jpg" alt="" width="660" height="495" /></p>
+<p style="text-align: center;"><img class="alignnone size-full wp-image-22545" src="http://cdn77.eatliver.com/wp-content/uploads/2017/02/comedy6.jpg" alt="" width="660" height="495" /></p>
+<p style="text-align: center;"><img class="alignnone size-full wp-image-22546" src="http://cdn77.eatliver.com/wp-content/uploads/2017/02/comedy7.jpg" alt="" width="660" height="495" /></p>
+<p style="text-align: center;"><img class="alignnone size-full wp-image-22547" src="http://cdn77.eatliver.com/wp-content/uploads/2017/02/comedy8.jpg" alt="" width="660" height="495" /></p>
+<p style="text-align: center;"><img class="alignnone size-full wp-image-22548" src="http://cdn77.eatliver.com/wp-content/uploads/2017/02/comedy9.jpg" alt="" width="660" height="495" /></p>
+<p style="text-align: center;"><img class="alignnone size-full wp-image-22549" src="http://cdn77.eatliver.com/wp-content/uploads/2017/02/comedy10.jpg" alt="" width="660" height="495" /></p>
+]]></content:encoded>
+			<wfw:commentRss>http://www.eatliver.com/wise-advice/feed/</wfw:commentRss>
+		<slash:comments>13</slash:comments>
+		</item>
+	</channel>
+</rss>
+
+<!-- Dynamic page generated in 0.219 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2017-02-13 17:06:09 -->

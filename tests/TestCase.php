@@ -22,4 +22,37 @@ abstract class TestCase extends Illuminate\Foundation\Testing\TestCase
 
         return $app;
     }
+
+    public function setUp()
+    {
+        parent::setUp();
+
+        Artisan::call('migrate');
+        Artisan::call('db:seed');
+
+        // test files
+        $saImages = [
+            'logo' => 'png',
+            'branding1' => 'jpg',
+            'branding2' => 'jpg',
+            'pdf' => 'pdf',
+            'pdf-disguised' => 'jpg',
+            'corrupt' => 'jpg'
+        ];
+
+        foreach ($saImages as $sName => $sExt) {
+            \File::copy(
+                public_path()."\seed\\".$sName.".".$sExt,
+                public_path()."\seed\\".$sName."-test.".$sExt
+            );
+        }
+
+    }
+
+    public function tearDown()
+    {
+        /*  */
+        //Artisan::call('migrate:refresh');
+        //parent::tearDown();
+    }
 }

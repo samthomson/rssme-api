@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet title="XSL_formatting" type="text/xsl" href="/shared/bsp/xsl/rss/nolsol.xsl"?>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/">
+    <channel>
+        <title><![CDATA[BBC News - Home]]></title>
+        <description><![CDATA[BBC News - Home]]></description>
+        <link>http://www.bbc.co.uk/news/</link>
+        <image>
+            <url>http://news.bbcimg.co.uk/nol/shared/img/bbc_news_120x60.gif</url>
+            <title>BBC News - Home</title>
+            <link>http://www.bbc.co.uk/news/</link>
+        </image>
+        <generator>RSS for Node</generator>
+        <lastBuildDate>Mon, 13 Feb 2017 17:27:03 GMT</lastBuildDate>
+        <copyright><![CDATA[Copyright: (C) British Broadcasting Corporation, see http://news.bbc.co.uk/2/hi/help/rss/4498287.stm for terms and conditions of reuse.]]></copyright>
+        <language><![CDATA[en-gb]]></language>
+        <ttl>15</ttl>
+        <item>
+            <title><![CDATA[France avalanche: Four killed at Tignes ski resort]]></title>
+            <description><![CDATA[A group of snowboarders was buried after the avalanche swept through an off-piste area at Tignes.]]></description>
+            <link>http://www.bbc.co.uk/news/world-europe-38954628</link>
+            <guid isPermaLink="true">http://www.bbc.co.uk/news/world-europe-38954628</guid>
+            <pubDate>Mon, 13 Feb 2017 16:53:11 GMT</pubDate>
+            <media:thumbnail width="976" height="549" url="http://c.files.bbci.co.uk/B65A/production/_94628664_daaab0ef-458c-4826-84ec-25d01e830279.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Oroville Dam risk: Thousands ordered to evacuate homes]]></title>
+            <description><![CDATA[Heavy rain forces the first emergency evacuation in the history of the highest US dam.]]></description>
+            <link>http://www.bbc.co.uk/news/world-us-canada-38952847</link>
+            <guid isPermaLink="true">http://www.bbc.co.uk/news/world-us-canada-38952847</guid>
+            <pubDate>Mon, 13 Feb 2017 14:42:46 GMT</pubDate>
+            <media:thumbnail width="976" height="549" url="http://c.files.bbci.co.uk/9254/production/_94606473_dam.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Sweden defends officials wearing headscarves in Iran]]></title>
+            <description><![CDATA[Trade minister says complying with Iranian law was better than sending an all-male delegation.]]></description>
+            <link>http://www.bbc.co.uk/news/world-europe-38956212</link>
+            <guid isPermaLink="true">http://www.bbc.co.uk/news/world-europe-38956212</guid>
+            <pubDate>Mon, 13 Feb 2017 12:39:25 GMT</pubDate>
+            <media:thumbnail width="976" height="549" url="http://c.files.bbci.co.uk/13BD4/production/_94625808_annlindeirna.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Trump greets Trudeau at the White House]]></title>
+            <description><![CDATA[Canada's PM arrives for his first meeting with the new US president, with jobs and trade high on the agenda.]]></description>
+            <link>http://www.bbc.co.uk/news/world-us-canada-38959441</link>
+            <guid isPermaLink="true">http://www.bbc.co.uk/news/world-us-canada-38959441</guid>
+            <pubDate>Mon, 13 Feb 2017 17:23:17 GMT</pubDate>
+            <media:thumbnail width="976" height="549" url="http://c.files.bbci.co.uk/698F/production/_94632072_0455e063-1c39-494e-8263-a7f47e7b590b.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[World Press Photo 2017: Russia envoy killing picture wins award]]></title>
+            <description><![CDATA[An image of the assassination of Russia's ambassador to Turkey wins the World Press Photo awards.]]></description>
+            <link>http://www.bbc.co.uk/news/in-pictures-38955285</link>
+            <guid isPermaLink="true">http://www.bbc.co.uk/news/in-pictures-38955285</guid>
+            <pubDate>Mon, 13 Feb 2017 13:29:49 GMT</pubDate>
+            <media:thumbnail width="1024" height="576" url="http://c.files.bbci.co.uk/107EA/production/_94626576_hi037871114.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Australia bushfires: 'Most buildings' in community affected]]></title>
+            <description><![CDATA[Aerial footage shows how bushfires have almost completely destroyed a small community in Australia.]]></description>
+            <link>http://www.bbc.co.uk/news/world-australia-38954075</link>
+            <guid isPermaLink="true">http://www.bbc.co.uk/news/world-australia-38954075</guid>
+            <pubDate>Mon, 13 Feb 2017 09:50:59 GMT</pubDate>
+            <media:thumbnail width="976" height="549" url="http://c.files.bbci.co.uk/12A9A/production/_94624467_p04ss0dl.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Taiwan tour bus crash kills dozens]]></title>
+            <description><![CDATA[At least 32 people were killed after their bus overturned near the capital, Taipei.]]></description>
+            <link>http://www.bbc.co.uk/news/world-asia-38959031</link>
+            <guid isPermaLink="true">http://www.bbc.co.uk/news/world-asia-38959031</guid>
+            <pubDate>Mon, 13 Feb 2017 17:17:57 GMT</pubDate>
+            <media:thumbnail width="1024" height="576" url="http://c.files.bbci.co.uk/12A19/production/_94631367_mediaitem94631366.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Did Adele give a Grammy to Beyonce?]]></title>
+            <description><![CDATA[Adele appears to reject her Grammy award for best album, saying Beyonce deserves it more.]]></description>
+            <link>http://www.bbc.co.uk/news/entertainment-arts-38953317</link>
+            <guid isPermaLink="true">http://www.bbc.co.uk/news/entertainment-arts-38953317</guid>
+            <pubDate>Mon, 13 Feb 2017 06:17:20 GMT</pubDate>
+            <media:thumbnail width="1024" height="576" url="http://c.files.bbci.co.uk/25FA/production/_94622790_237cda71-6820-40f6-aa83-35ee9326d245.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[BBC reporter's undercover prison diary]]></title>
+            <description><![CDATA[An undercover investigation by Panorama has revealed the reality of life behind bars in the crisis-hit prison system.]]></description>
+            <link>http://www.bbc.co.uk/news/uk-38952623</link>
+            <guid isPermaLink="true">http://www.bbc.co.uk/news/uk-38952623</guid>
+            <pubDate>Mon, 13 Feb 2017 01:19:58 GMT</pubDate>
+            <media:thumbnail width="976" height="549" url="http://c.files.bbci.co.uk/CB37/production/_94632025_p04ss6m9.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Iraqi air force 'kills 77' in strikes aimed at IS leader Baghdadi]]></title>
+            <description><![CDATA[The military says it killed 13 IS commanders but leader Abu Bakr al-Baghdadi is not among them.]]></description>
+            <link>http://www.bbc.co.uk/news/world-middle-east-38961677</link>
+            <guid isPermaLink="true">http://www.bbc.co.uk/news/world-middle-east-38961677</guid>
+            <pubDate>Mon, 13 Feb 2017 17:09:17 GMT</pubDate>
+            <media:thumbnail width="976" height="549" url="http://c.files.bbci.co.uk/60F7/production/_94632842_mediaitem94632838.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Lahore protest blast: 11 killed at Pakistan city rally]]></title>
+            <description><![CDATA[A suspected suicide bomber targets a pharmacists' rally in the Pakistani city, killing at least 11.]]></description>
+            <link>http://www.bbc.co.uk/news/world-asia-38960185</link>
+            <guid isPermaLink="true">http://www.bbc.co.uk/news/world-asia-38960185</guid>
+            <pubDate>Mon, 13 Feb 2017 15:24:33 GMT</pubDate>
+            <media:thumbnail width="976" height="549" url="http://c.files.bbci.co.uk/25DC/production/_94629690_0d64c9d0-4e05-4de2-aa0f-99796886bb46.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[White House aide declines to back Flynn over Russia contact]]></title>
+            <description><![CDATA[Michael Flynn is accused of discussing sanctions with Russia ahead of inauguration.]]></description>
+            <link>http://www.bbc.co.uk/news/world-us-canada-38954455</link>
+            <guid isPermaLink="true">http://www.bbc.co.uk/news/world-us-canada-38954455</guid>
+            <pubDate>Mon, 13 Feb 2017 14:50:36 GMT</pubDate>
+            <media:thumbnail width="976" height="549" url="http://c.files.bbci.co.uk/185EE/production/_94622899_mediaitem94622895.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Has Trump started a new deportation drive?]]></title>
+            <description><![CDATA[Immigration-rights groups fear Mr Trump's promised crackdown has begun]]></description>
+            <link>http://www.bbc.co.uk/news/world-us-canada-38959785</link>
+            <guid isPermaLink="true">http://www.bbc.co.uk/news/world-us-canada-38959785</guid>
+            <pubDate>Mon, 13 Feb 2017 16:24:17 GMT</pubDate>
+            <media:thumbnail width="976" height="549" url="http://c.files.bbci.co.uk/3CE8/production/_94629551_tv037833097.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Pakistan capital bans Valentine's Day]]></title>
+            <description><![CDATA[Celebrations must not be held in government offices or public spaces, Islamabad High Court rules.]]></description>
+            <link>http://www.bbc.co.uk/news/world-asia-38958999</link>
+            <guid isPermaLink="true">http://www.bbc.co.uk/news/world-asia-38958999</guid>
+            <pubDate>Mon, 13 Feb 2017 14:09:34 GMT</pubDate>
+            <media:thumbnail width="2048" height="1152" url="http://c.files.bbci.co.uk/9D64/production/_94629204_pakistanvalentinesepa.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Tanzania tourist guide charged over 'twisted translation']]></title>
+            <description><![CDATA[A Tanzanian who mistranslated a tourist's remarks in a "joke video" is charged under cybercrime laws.]]></description>
+            <link>http://www.bbc.co.uk/news/world-africa-38955266</link>
+            <guid isPermaLink="true">http://www.bbc.co.uk/news/world-africa-38955266</guid>
+            <pubDate>Mon, 13 Feb 2017 14:19:11 GMT</pubDate>
+            <media:thumbnail width="976" height="549" url="http://c.files.bbci.co.uk/D025/production/_94258235_tourist2.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[What went wrong at damaged US dam?]]></title>
+            <description><![CDATA[More than 180,000 people in northern California have been told to evacuate their homes after both overflow channels at the tallest dam in the US were found to be damaged.]]></description>
+            <link>http://www.bbc.co.uk/news/world-us-canada-38959715</link>
+            <guid isPermaLink="true">http://www.bbc.co.uk/news/world-us-canada-38959715</guid>
+            <pubDate>Mon, 13 Feb 2017 13:37:00 GMT</pubDate>
+            <media:thumbnail width="640" height="360" url="http://c.files.bbci.co.uk/C726/production/_94628905_p04ssyv8.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[The 2017 Grammys in two minutes]]></title>
+            <description><![CDATA[From Chance's first win to Adele's George Michael tribute, watch highlights from the 2017 Grammy Awards.]]></description>
+            <link>http://www.bbc.co.uk/news/entertainment-arts-38956931</link>
+            <guid isPermaLink="true">http://www.bbc.co.uk/news/entertainment-arts-38956931</guid>
+            <pubDate>Mon, 13 Feb 2017 11:18:16 GMT</pubDate>
+            <media:thumbnail width="1024" height="576" url="http://c.files.bbci.co.uk/B999/production/_94631574_p04stgk1.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Leaders 'shoulder grab' at White House]]></title>
+            <description><![CDATA[The US president and Canadian prime minister exchange greetings ahead of their first face-to-face talks.]]></description>
+            <link>http://www.bbc.co.uk/news/world-us-canada-38961397</link>
+            <guid isPermaLink="true">http://www.bbc.co.uk/news/world-us-canada-38961397</guid>
+            <pubDate>Mon, 13 Feb 2017 16:14:53 GMT</pubDate>
+            <media:thumbnail width="976" height="549" url="http://c.files.bbci.co.uk/1156F/production/_94632017_mediaitem94632016.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Mexican building US wall says family jokes about leaving gap]]></title>
+            <description><![CDATA["Luis" is Mexican and works for an American firm reinforcing the wall at the US-Mexico border.]]></description>
+            <link>http://www.bbc.co.uk/news/world-latin-america-38932934</link>
+            <guid isPermaLink="true">http://www.bbc.co.uk/news/world-latin-america-38932934</guid>
+            <pubDate>Mon, 13 Feb 2017 01:54:10 GMT</pubDate>
+            <media:thumbnail width="1024" height="576" url="http://c.files.bbci.co.uk/0150/production/_94263300_p04sjfd4.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[The stars hit the red carpet at the Baftas]]></title>
+            <description><![CDATA[The Bafta awards are taking place in London and the stars have turned out on the red carpet.]]></description>
+            <link>http://www.bbc.co.uk/news/entertainment-arts-38952252</link>
+            <guid isPermaLink="true">http://www.bbc.co.uk/news/entertainment-arts-38952252</guid>
+            <pubDate>Sun, 12 Feb 2017 21:38:31 GMT</pubDate>
+            <media:thumbnail width="976" height="549" url="http://c.files.bbci.co.uk/2727/production/_94632001_kate.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[World news in one minute]]></title>
+            <description><![CDATA[Watch the latest news summary from BBC World News. International news updated 24 hours a day.]]></description>
+            <link>http://www.bbc.co.uk/news/10462520</link>
+            <guid isPermaLink="true">http://www.bbc.co.uk/news/10462520</guid>
+            <pubDate>Mon, 13 Feb 2017 15:40:05 GMT</pubDate>
+            <media:thumbnail width="1024" height="576" url="http://c.files.bbci.co.uk/15C7E/production/_90041298_p01tlf61.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Leaked sex tapes provoked woman's suicide]]></title>
+            <description><![CDATA[Tiziana Cantone killed herself after private sex videos of her were leaked online.]]></description>
+            <link>http://www.bbc.co.uk/news/world-europe-38934109</link>
+            <guid isPermaLink="true">http://www.bbc.co.uk/news/world-europe-38934109</guid>
+            <pubDate>Mon, 13 Feb 2017 00:19:52 GMT</pubDate>
+            <media:thumbnail width="976" height="549" url="http://c.files.bbci.co.uk/8E5E/production/_94264463_p04sjjf5.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Japanese women on their 'angry panda' moment]]></title>
+            <description><![CDATA[A heavy metal-loving panda full of rage is a new character Japanese working women can identify with.]]></description>
+            <link>http://www.bbc.co.uk/news/world-asia-38915525</link>
+            <guid isPermaLink="true">http://www.bbc.co.uk/news/world-asia-38915525</guid>
+            <pubDate>Mon, 13 Feb 2017 00:14:01 GMT</pubDate>
+            <media:thumbnail width="1024" height="576" url="http://c.files.bbci.co.uk/B987/production/_94259474_p04shncp.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Grammys: Adele fluffs tribute to George Michael]]></title>
+            <description><![CDATA[Pop star Adele stops her Grammy tribute to George Michael after hitting a bum note.]]></description>
+            <link>http://www.bbc.co.uk/news/entertainment-arts-38952767</link>
+            <guid isPermaLink="true">http://www.bbc.co.uk/news/entertainment-arts-38952767</guid>
+            <pubDate>Mon, 13 Feb 2017 03:59:17 GMT</pubDate>
+            <media:thumbnail width="976" height="549" url="http://c.files.bbci.co.uk/09A6/production/_94607420_df85408f-41c7-44a5-9b09-adcd89bb3f2f.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[The man who painted a street mural of Beyonce]]></title>
+            <description><![CDATA[Why does street artist Mark Walls spend thousands of dollars painting celebrities - and who is next?]]></description>
+            <link>http://www.bbc.co.uk/news/entertainment-arts-38952442</link>
+            <guid isPermaLink="true">http://www.bbc.co.uk/news/entertainment-arts-38952442</guid>
+            <pubDate>Mon, 13 Feb 2017 02:18:38 GMT</pubDate>
+            <media:thumbnail width="976" height="549" url="http://c.files.bbci.co.uk/1217C/production/_94280147_beyoncemural.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Grammys 2017]]></title>
+            <description><![CDATA[Images of this year's Grammy awards at the Staples Center in Los Angeles.]]></description>
+            <link>http://www.bbc.co.uk/news/entertainment-arts-38952618</link>
+            <guid isPermaLink="true">http://www.bbc.co.uk/news/entertainment-arts-38952618</guid>
+            <pubDate>Mon, 13 Feb 2017 07:43:48 GMT</pubDate>
+            <media:thumbnail width="976" height="549" url="http://c.files.bbci.co.uk/FE76/production/_94624156_rihanna1_getty.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Baftas 2017]]></title>
+            <description><![CDATA[Images of this year's Bafta film awards at the Royal Albert Hall in London.]]></description>
+            <link>http://www.bbc.co.uk/news/entertainment-arts-38951372</link>
+            <guid isPermaLink="true">http://www.bbc.co.uk/news/entertainment-arts-38951372</guid>
+            <pubDate>Mon, 13 Feb 2017 03:08:50 GMT</pubDate>
+            <media:thumbnail width="976" height="549" url="http://c.files.bbci.co.uk/EB6E/production/_94607206_mediaitem94607011.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Resurrecting a ruin]]></title>
+            <description><![CDATA[The derelict St Peter's Seminary - in Scottish woods - is receiving a second chance.]]></description>
+            <link>http://www.bbc.co.uk/news/in-pictures-38884020</link>
+            <guid isPermaLink="true">http://www.bbc.co.uk/news/in-pictures-38884020</guid>
+            <pubDate>Sun, 12 Feb 2017 02:31:35 GMT</pubDate>
+            <media:thumbnail width="976" height="549" url="http://c.files.bbci.co.uk/14DBA/production/_94243458_1024p247_nva_nord_external08_01copy.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Week in pictures: 4-10 February 2017]]></title>
+            <description><![CDATA[A selection of the best news photographs from around the world, taken over the past week.]]></description>
+            <link>http://www.bbc.co.uk/news/in-pictures-38929490</link>
+            <guid isPermaLink="true">http://www.bbc.co.uk/news/in-pictures-38929490</guid>
+            <pubDate>Sat, 11 Feb 2017 01:32:34 GMT</pubDate>
+            <media:thumbnail width="929" height="523" url="http://c.files.bbci.co.uk/F465/production/_94256526_4302d19b-2fc7-46a3-adfd-41ebb8cdfa08.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Football for change]]></title>
+            <description><![CDATA[Photographer Charlie Clift documents the way football is helping communities around the world.]]></description>
+            <link>http://www.bbc.co.uk/news/in-pictures-38893072</link>
+            <guid isPermaLink="true">http://www.bbc.co.uk/news/in-pictures-38893072</guid>
+            <pubDate>Fri, 10 Feb 2017 10:37:05 GMT</pubDate>
+            <media:thumbnail width="875" height="492" url="http://c.files.bbci.co.uk/14035/production/_94237918_07_ps10.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Italian tragedy]]></title>
+            <description><![CDATA[The story of Tiziana Cantone who killed herself after private sex videos of her went viral.]]></description>
+            <link>http://www.bbc.co.uk/news/world-europe-38848528</link>
+            <guid isPermaLink="true">http://www.bbc.co.uk/news/world-europe-38848528</guid>
+            <pubDate>Mon, 13 Feb 2017 00:23:33 GMT</pubDate>
+            <media:thumbnail width="549" height="309" url="http://c.files.bbci.co.uk/1A38/production/_94221760_8cbba90b-60cb-44ab-aa38-637e7f523d67.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[She may look cute...]]></title>
+            <description><![CDATA[A new character to compete with Hello Kitty draws on the frustrations of Japan's working women.]]></description>
+            <link>http://www.bbc.co.uk/news/world-asia-38606355</link>
+            <guid isPermaLink="true">http://www.bbc.co.uk/news/world-asia-38606355</guid>
+            <pubDate>Mon, 13 Feb 2017 00:14:30 GMT</pubDate>
+            <media:thumbnail width="976" height="549" url="http://c.files.bbci.co.uk/14E09/production/_93931558_b9a023bc-ed5f-4a42-bfe6-0ae4036439b4.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Whale graveyard]]></title>
+            <description><![CDATA[Shallow water and unusual geography are blamed for making a New Zealand beach a 'whale graveyard'.]]></description>
+            <link>http://www.bbc.co.uk/news/world-asia-38953557</link>
+            <guid isPermaLink="true">http://www.bbc.co.uk/news/world-asia-38953557</guid>
+            <pubDate>Mon, 13 Feb 2017 10:18:02 GMT</pubDate>
+            <media:thumbnail width="2048" height="1152" url="http://c.files.bbci.co.uk/9C60/production/_94623004_mediaitem94622402.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Awake under the knife]]></title>
+            <description><![CDATA[Donna Penner woke up in the operating room, just before the surgeon made his first incision. She describes how she survived the excruciating pain of being cut open while awake.]]></description>
+            <link>http://www.bbc.co.uk/news/magazine-38733131</link>
+            <guid isPermaLink="true">http://www.bbc.co.uk/news/magazine-38733131</guid>
+            <pubDate>Mon, 13 Feb 2017 01:00:54 GMT</pubDate>
+            <media:thumbnail width="976" height="549" url="http://c.files.bbci.co.uk/49C5/production/_94258881_surgery_think976.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Thanks, mum!]]></title>
+            <description><![CDATA[The woman who uses blockchain technology to prove where food comes from.]]></description>
+            <link>http://www.bbc.co.uk/news/business-38773878</link>
+            <guid isPermaLink="true">http://www.bbc.co.uk/news/business-38773878</guid>
+            <pubDate>Mon, 13 Feb 2017 00:12:51 GMT</pubDate>
+            <media:thumbnail width="2048" height="1152" url="http://c.files.bbci.co.uk/5748/production/_94244322_provenance-2.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Hip flasks and politics]]></title>
+            <description><![CDATA[Adele was the night's big winner, but what else was going on at the Grammy awards?]]></description>
+            <link>http://www.bbc.co.uk/news/entertainment-arts-38953862</link>
+            <guid isPermaLink="true">http://www.bbc.co.uk/news/entertainment-arts-38953862</guid>
+            <pubDate>Mon, 13 Feb 2017 08:26:30 GMT</pubDate>
+            <media:thumbnail width="976" height="549" url="http://c.files.bbci.co.uk/13968/production/_94623208_adele1_reuters.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Work to be done]]></title>
+            <description><![CDATA[How Australian entrepreneur Matt Barrie set up and grew website Freelancer, which links people who need tasks done with others who bid for the work.]]></description>
+            <link>http://www.bbc.co.uk/news/business-38881870</link>
+            <guid isPermaLink="true">http://www.bbc.co.uk/news/business-38881870</guid>
+            <pubDate>Mon, 13 Feb 2017 00:04:10 GMT</pubDate>
+            <media:thumbnail width="976" height="549" url="http://c.files.bbci.co.uk/1AE2/production/_94228860_dfdafd.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Money via mobile: The M-Pesa revolution]]></title>
+            <description><![CDATA[How mobile technology is profoundly changing access to money in the developing world.]]></description>
+            <link>http://www.bbc.co.uk/news/business-38667475</link>
+            <guid isPermaLink="true">http://www.bbc.co.uk/news/business-38667475</guid>
+            <pubDate>Mon, 13 Feb 2017 00:35:04 GMT</pubDate>
+            <media:thumbnail width="976" height="549" url="http://c.files.bbci.co.uk/72E7/production/_93651492_976549gettyimages-74504527.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Rengin Arslan: Turkey's academics 'restricted and imprisoned' ]]></title>
+            <description><![CDATA[Academics in Turkey share their experiences as they face increasing pressure and mass sackings.]]></description>
+            <link>http://www.bbc.co.uk/news/world-europe-38950906</link>
+            <guid isPermaLink="true">http://www.bbc.co.uk/news/world-europe-38950906</guid>
+            <pubDate>Mon, 13 Feb 2017 01:22:26 GMT</pubDate>
+            <media:thumbnail width="976" height="549" url="http://c.files.bbci.co.uk/32B1/production/_94277921_gettyimages-634523524-1.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[The rise of Chance the Rapper]]></title>
+            <description><![CDATA[He's gone from releasing his first mixtape to Grammy winner in five years - without a major label.]]></description>
+            <link>http://www.bbc.co.uk/newsbeat/articles/38953734</link>
+            <guid isPermaLink="true">http://www.bbc.co.uk/newsbeat/articles/38953734</guid>
+            <pubDate>Mon, 13 Feb 2017 07:47:21 GMT</pubDate>
+            <media:thumbnail width="976" height="549" url="http://c.files.bbci.co.uk/11A82/production/_94622327_hi037864198.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[The tot at the centre of a key Indian election]]></title>
+            <description><![CDATA[Khazanchi Nath, exactly two months and 11 days old, has become the face of a crucial Indian election.]]></description>
+            <link>http://www.bbc.co.uk/news/world-asia-india-38932631</link>
+            <guid isPermaLink="true">http://www.bbc.co.uk/news/world-asia-india-38932631</guid>
+            <pubDate>Mon, 13 Feb 2017 05:10:34 GMT</pubDate>
+            <media:thumbnail width="976" height="549" url="http://c.files.bbci.co.uk/7C6F/production/_94255813_img_3740.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Tahrir al-Sham: Al-Qaeda's latest incarnation in Syria]]></title>
+            <description><![CDATA[The Syrian jihadist group Jabhat Fateh al-Sham has merged with four smaller factions and formed a new alliance called Tahrir al-Sham.]]></description>
+            <link>http://www.bbc.co.uk/news/world-middle-east-38934206</link>
+            <guid isPermaLink="true">http://www.bbc.co.uk/news/world-middle-east-38934206</guid>
+            <pubDate>Sun, 12 Feb 2017 02:06:06 GMT</pubDate>
+            <media:thumbnail width="976" height="549" url="http://c.files.bbci.co.uk/1416D/production/_94258228_flag.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Joe Root: New England captain a born leader - Martyn Moxon]]></title>
+            <description><![CDATA[New England Test captain Joe Root is a "born leader", according to Yorkshire director of cricket Martyn Moxon.]]></description>
+            <link>http://www.bbc.co.uk/sport/cricket/38957606</link>
+            <guid isPermaLink="true">http://www.bbc.co.uk/sport/cricket/38957606</guid>
+            <pubDate>Mon, 13 Feb 2017 15:40:08 GMT</pubDate>
+            <media:thumbnail width="2048" height="1152" url="http://c.files.bbci.co.uk/17540/production/_94625559_joeroot.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Six Nations 2017: Jeremy Guscott on England, Wales, Scotland & Ireland]]></title>
+            <description><![CDATA[England will lose at some point, but their win over Wales fed their player's belief in their own invincibility, says Jeremy Guscott.]]></description>
+            <link>http://www.bbc.co.uk/sport/rugby-union/38950156</link>
+            <guid isPermaLink="true">http://www.bbc.co.uk/sport/rugby-union/38950156</guid>
+            <pubDate>Mon, 13 Feb 2017 12:06:34 GMT</pubDate>
+            <media:thumbnail width="2048" height="1152" url="http://c.files.bbci.co.uk/175A2/production/_94605659_daly_farrell_rex.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Joe Root: Is England Test captain the right Alastair Cook replacement?]]></title>
+            <description><![CDATA[Joe Root may have been the only realistic candidate to replace Alastair Cook as England captain, but does that make him the right man for the job?]]></description>
+            <link>http://www.bbc.co.uk/sport/cricket/38557962</link>
+            <guid isPermaLink="true">http://www.bbc.co.uk/sport/cricket/38557962</guid>
+            <pubDate>Mon, 13 Feb 2017 11:48:26 GMT</pubDate>
+            <media:thumbnail width="2048" height="1152" url="http://c.files.bbci.co.uk/17034/production/_94006249_root_ap.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Tom Arscott: Sale Sharks winger leaked team information to Bristol - RFU]]></title>
+            <description><![CDATA[Sacked Sale Sharks winger Tom Arscott is found guilty of passing on confidential team information to Bristol by the RFU.]]></description>
+            <link>http://www.bbc.co.uk/sport/rugby-union/38958503</link>
+            <guid isPermaLink="true">http://www.bbc.co.uk/sport/rugby-union/38958503</guid>
+            <pubDate>Mon, 13 Feb 2017 17:08:45 GMT</pubDate>
+            <media:thumbnail width="2048" height="1152" url="http://c.files.bbci.co.uk/DB6C/production/_94627165_rexfeatures_4642668al.jpg"/>
+        </item>
+    </channel>
+</rss>
