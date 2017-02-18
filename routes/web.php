@@ -49,3 +49,6 @@ Route::group(['prefix' => 'app', 'middleware' => 'cors'], function () {
 
 
 });
+
+
+Route::get('/process', ['uses' => 'AutoController@process']);
