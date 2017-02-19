@@ -18,7 +18,7 @@ class CreateFeeditemsTable extends Migration
             $table->integer('feed_id');
             $table->string('title');
             $table->string('url');
-            $table->string('thumb');
+            $table->string('thumb')->default('');
             $table->string('guid');
             $table->dateTime('pubDate');
             $table->timestamps();

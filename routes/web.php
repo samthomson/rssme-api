@@ -16,38 +16,32 @@
 //header("Access-Control-Allow-Headers: Content-Type, X-Auth-Token, Origin, Authorization");
 
 Route::get('/', function () {
-    if(Auth::check()) {
-        echo "logged in";
-    }else{
-        echo "logged out";
-    }
+    echo 'api root';
 });
 
 
 Route::group(['prefix' => 'app', 'middleware' => 'cors'], function () {
 
-
     Route::post('/auth/register', 'AuthController@register');
 
-    Route::get('/auth/login', 'AuthController@authenticate');
+    Route::post('/auth/login', 'AuthController@authenticate');
 
-    Route::get('/auth/logout', function () {
-        return view('welcome');
-    });
+});
 
-    Route::get('/auth/authenticated', [function () {
-        return response()->json([
-            'authStatus' => true
-        ]);
-    }]);
 
-    Route::get('/auth/getauthed', 'AuthController@getAuthenticatedUser');
+Route::group(['prefix' => 'app', 'middleware' => ['cors', 'jwt.auth']], function () {
 
-    Route::get('/feedsandcategories', 'AppController@everything');
+    // get feeds and first set of feed items
+    #Route::get('/feedsanditems', 'AppController@everything');
 
+    // get subscriptions for a user
+    Route::get('/subscriptions', 'AppController@getSubscriptions');
+
+    // get feed items
+    Route::get('/feedsandcategories', 'AppController@getFeedItems');
+
+    // add new feed
     Route::post('/feeds/new', 'AppController@newFeed');
-
-
 });
 
 

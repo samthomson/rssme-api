@@ -42,53 +42,60 @@ class AuthController extends Controller
 
         $oUser->save();
 
+        $credentials = $request->only(['email', 'password']);
+        $token = JWTAuth::attempt($credentials);
+
         // all good, user registered/created
         return response()->json(
             [
-                'code' => 200
+                'code' => 200,
+                'token' => compact('token')['token']
             ], 200
         );
 
     }
 
-    public function authenticate(Request $request)
-    {
-        // grab credentials from the request
-        $credentials = $request->only('email', 'password');
+    public function authenticate(Request $request) {
+        // validate params, attempt to find user, log them in, handle fails with thought out http responses
 
-        try {
-            // attempt to verify the credentials and create a token for the user
-            if (! $token = JWTAuth::attempt($credentials)) {
-                return response()->json(['error' => 'invalid_credentials'], 200);
+        $bAuthed = false;
+        $sToken = null;
+
+        $credentials = $request->only(['email', 'password']);
+
+        if(isset($request->email) && isset($request->password) && Auth::attempt($credentials)) {
+
+            try {
+                // attempt to verify the credentials and create a token for the user
+                if (! $token = JWTAuth::attempt($credentials)) {
+                    return response()->json(['error' => 'invalid_credentials'], 401);
+                }
+            } catch (JWTException $e) {
+                // something went wrong whilst attempting to encode the token
+                return response()->json(['error' => 'could_not_create_token'], 500);
             }
-        } catch (JWTException $e) {
-            // something went wrong whilst attempting to encode the token
-            return response()->json(
-                [
-                    'error' => 'could_not_create_token',
-                    'code' => 500
-                ],
-                200);
-        }
+            // all good so return the token
+            $bAuthed = true;
+            $sToken = compact('token')['token'];
+        } else {
+            // auth failed, return error
+            $sErrorResponse = 'Auth Fail';
 
-        // all good so return the token
-
-        $bAuthStatus = false;
-        $mToken = null;
-
-        if(Auth::attempt([
-            'email' => $request->get('email'), 'password' => $request->get('password')
-        ])) {
-            $bAuthStatus = true;
-            $mToken = compact('token')['token'];
+            if(!isset($request->email) || !isset($request->password))
+            {
+                $sErrorResponse = 'missing or wrong credentials';
+            }
+            return response($sErrorResponse, 401);
         }
 
 
         return response()->json([
-            'authStatus' => $bAuthStatus,
-            'token' => $mToken
+            'authenticated' => $bAuthed,
+            'token' => $sToken
         ]);
+
     }
+
 
     public function getAuthenticatedUser(Request $request)
     {

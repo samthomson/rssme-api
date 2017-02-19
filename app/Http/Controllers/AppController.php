@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Feeds\Feed;
-use App\Models\Feeds\UserFeed;
+use App\Models\Feeds\FeedSubscriber;
 use App\Models\Feeds\FeedItem;
 
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -15,6 +15,7 @@ use Validator;
 use Hash;
 use Illuminate\Http\Request;
 use App\User;
+use Auth;
 
 
 class AppController extends Controller
@@ -109,12 +110,124 @@ class AppController extends Controller
 
     }
 
-    public function everything() {
-        return response()->json([]);
+
+    public static function everything()
+    {
+        $oUser = Auth::user();
+
+        \DB::enableQueryLog();
+
+        $oQuery = DB::table('categories')
+            ->join('feed_user', function($join)
+            {
+                $join->on('categories.id', '=', 'feed_user.category_id')
+                    ->where('categories.user_id', '=', $oUser->id);
+            })
+            ->join('feeditems', function($join)
+            {
+                $join->on('feed_user.feed_id', '=', 'feeditems.feed_id');
+
+                if(Request::has('feed')){
+                    $join->where("feeditems.feed_id", "=", Request::get('feed'));
+                }
+            })
+            ->join('feeds', "feeds.id", "=", "feed_user.feed_id");
+        $oQuery->orderBy('feeditems.pubDate', 'desc')
+            ->select(['feeditems.url as url', 'feeditems.title as title', 'feeds.url as feedurl', 'feeds.id as feed_id', 'feeditems.pubDate as date', 'feed_user.name as name', 'feeditems.thumb as thumb', 'feeds.thumb as feedthumb', 'feed_user.colour as feed_colour', 'categories.id as cat_id']);
+
+
+
+
+        $iPage = Request::input("page", 1);
+        $iPerPage = 20;
+
+        $iTotalItems = 0;
+
+        //$maFeedItems = $oQuery->skip(($iPage * $iPerPage)-$iPerPage)->take($iPerPage)->get();
+        $maFeedItems = $oQuery->get();
+
+        #print_r($maFeedItems);die();
+
+        $iTotalItems = count($maFeedItems);
+        $iTotalPages = ceil($iTotalItems / $iPerPage);
+
+        $maFeedItems = array_slice($maFeedItems, ($iPage * $iPerPage)-$iPerPage, $iPerPage);
+
+        #print_r(DB::getQueryLog());
+
+
+        $oaFeedItems = [];
+
+        foreach ($maFeedItems as $oFeedItem) {
+
+            $sDate = '';
+            $oDate = new Carbon($oFeedItem->date);
+            if($oDate->isToday())
+                // 10:41 pm
+                $sDate = $oDate->format('g:i a');
+            else
+                // Aug 12
+                $sDate = $oDate->format('M j');
+
+            array_push($oaFeedItems,
+                [
+                "url" => $oFeedItem->url,
+                "title" => $oFeedItem->title,
+                "feedurl" => $oFeedItem->feedurl,
+                "feed_id" => $oFeedItem->feed_id,
+                "category_id" => $oFeedItem->cat_id,
+                "date" => $sDate,
+                "name" => $oFeedItem->name,
+                "thumb" => $oFeedItem->thumb !== '' ? $oFeedItem->thumb : $oFeedItem->feedthumb,
+                "feed_thumb" => $oFeedItem->feedthumb
+                ]
+                );
+        }
+
+        if(Request::has('feed')){
+            $oQuery->where("feeds.id", "=", Request::get('feed'));
+        }
+
+        $oUser = Auth::user();
+        $oUser->load('userCategories.userFeeds.feed');
+
+        $oData = [
+            'iAvailablePages' => $iTotalPages,
+            'iPerPage' => $iPerPage
+        ];
+
+        $oaCategoryFeeds = [];
+
+        foreach ($oUser->userCategories as $oCategory) {
+            // get feeds in category
+            $aoFeeds = [];
+            foreach($oCategory->userFeeds as $oUserFeed)
+            {
+                array_push($aoFeeds, ["id" => $oUserFeed->id, "name" => $oUserFeed->name]);
+            }
+            // now add category with feeds
+            array_push($oaCategoryFeeds, ["category_id" => $oCategory->id, "category_name" => $oCategory->name, "feeds" => $aoFeeds]);
+        }
+
+
+        return response()->json([
+            'jsonFeedItems' => $oaFeedItems,
+            'jsonCategoryFeeds' => $oaCategoryFeeds,
+            'data' => $oData
+        ]);
     }
 
-    public function newFeed(Request $request) {
+    public function getSubscriptions()
+    {
+        $oUser = Auth::user()->load('subscriptions');
 
+        return response()->json([
+            'subscriptions' => $oUser->subscriptions
+        ]);
+    }
+
+    public function newFeed(Request $request)
+    {
         if ($request->has('url') && $request->has('name'))
         {
             self::createUniqueUserFeed(
@@ -155,12 +268,11 @@ class AppController extends Controller
             $iFeedId = $oFeed->id;
         }
 
-        $oUserFeed = new UserFeed;
-        $oUserFeed->feed_id = $iFeedId;
-        $oUserFeed->user_id = Auth::id();
-        $oUserFeed->name = $sFeedName;
-        //$oUserFeed->colour = Helper::sRandomUserFeedColour();
-        $oUserFeed->save();
+        $oSubscriber = new FeedSubscriber;
+        $oSubscriber->feed_id = $iFeedId;
+        $oSubscriber->user_id = Auth::id();
+        $oSubscriber->name = $sFeedName;
+        $oSubscriber->save();
     }
     public static function scheduleFeedPull($iFeedId, $iMinutes = 0)
     {
