@@ -38,7 +38,7 @@ Route::group(['prefix' => 'app', 'middleware' => ['cors', 'jwt.auth']], function
     Route::get('/subscriptions', 'AppController@getSubscriptions');
 
     // get feed items
-    Route::get('/feedsandcategories', 'AppController@getFeedItems');
+    Route::get('/feeditems', 'AppController@getFeedItems');
 
     // add new feed
     Route::post('/feeds/new', 'AppController@newFeed');

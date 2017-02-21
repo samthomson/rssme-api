@@ -12,7 +12,6 @@ use Carbon\Carbon;
 use App\Http\Controllers\Feeds;
 
 use App\Models\Feeds\FeedItem;
-use App\Models\Feeds\FeedItem;
 use App\Models\Task;
 
 class AutoController extends Controller

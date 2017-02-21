@@ -17,6 +17,7 @@ use Hash;
 use Illuminate\Http\Request;
 use App\User;
 use Auth;
+use DB;
 
 use Carbon\Carbon;
 
@@ -224,8 +225,48 @@ class AppController extends Controller
     {
         $oUser = Auth::user()->load('subscriptions');
 
-        $oR = ['subscriptions' => $oUser->subscriptions];
-        return response()->json($oR);
+        return response()->json(
+            [
+                'subscriptions' => $oUser->subscriptions
+            ]
+        );
+    }
+
+    public function getFeedItems()
+    {
+        $oUser = Auth::user()->load('subscriptions');
+
+        /*
+        return response()->json(
+            [
+                'subscriptions' => $oUser->subscriptions
+            ]
+        );
+
+        */
+        $oQuery = DB::table('feeditems', function($join)
+            {
+                $join->on('feed_subscriber.feed_id', '=', 'feeditems.feed_id')/*
+                    ->where('feed_user.feed_id', '=', 'feeditems.id')*/;
+
+                if(Request::has('feed')){
+                    $join->where("feeditems.feed_id", "=", Request::get('feed'));
+                }
+            })
+            ->join('feed_subscriber', "feeditems.feed_id", "=", "feed_subscriber.feed_id")
+            ->join('feeds', "feeds.id", "=", "feed_subscriber.feed_id");
+        $oQuery->orderBy('feeditems.pubDate', 'desc')
+            ->select(['feeditems.url as url', 'feeditems.title as title', 'feeds.url as feedurl', 'feeds.id as feed_id', 'feeditems.pubDate as date', 'feed_subscriber.name as name', 'feeditems.thumb as thumb', 'feeds.thumb as feedthumb']);
+
+        $maFeedItems = $oQuery->get();
+
+        return response()->json(
+            [
+                'feeditems' => $maFeedItems
+            ]
+        );
+
+
     }
 
     public function newFeed(Request $request)
