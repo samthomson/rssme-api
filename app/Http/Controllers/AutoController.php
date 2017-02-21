@@ -9,12 +9,13 @@ use App\Http\Controllers\Controller;
 
 
 use Carbon\Carbon;
-use App\Auto\Task;
 use App\Http\Controllers\Feeds;
 
-use App\Feeds\FeedItem;
+use App\Models\Feeds\FeedItem;
+use App\Models\Feeds\FeedItem;
+use App\Models\Task;
 
-class Auto extends Controller
+class AutoController extends Controller
 {
     /**
      * Display a listing of the resource.

@@ -40,9 +40,29 @@ class BlackboxTest extends TestCase
         return $this->assertTrue(true);
     }
 
-    public function testGetFeeds()
+    public function testGetSubscriptions()
     {
-        return $this->assertTrue(true);
+        $sRouteURl = $this->sAPIPrefix.'/subscriptions';
+        // shouldn't work if not logged in
+        $this->json('GET', $sRouteURl);
+        $this->assertResponseStatus(400); // no token
+
+        $this->login();
+        $sHeader = parent::getHeaderForTest();
+
+
+        // should return 200 if logged in and data valid
+        $this->json('GET', $sRouteURl, [], $sHeader)
+             ->seeJsonStructure(
+                 [
+                     'subscriptions' => [
+                         '*' => [
+                             'id', 'feed_id', 'name'
+                         ]
+                     ]
+                 ]
+             );
+        $this->assertResponseStatus(200);
     }
 
     public function testAddFeed()
@@ -109,7 +129,6 @@ class BlackboxTest extends TestCase
         $oTask = \App\Models\Task::where('detail', $oFeed->id)->first();
 
         $this->assertTrue(isset($oTask));
-
     }
 
     public function testDeleteFeed()

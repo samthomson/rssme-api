@@ -224,9 +224,8 @@ class AppController extends Controller
     {
         $oUser = Auth::user()->load('subscriptions');
 
-        return response()->json([
-            'subscriptions' => $oUser->subscriptions
-        ]);
+        $oR = ['subscriptions' => $oUser->subscriptions];
+        return response()->json($oR);
     }
 
     public function newFeed(Request $request)
@@ -239,7 +238,7 @@ class AppController extends Controller
 
         if (!$validator->fails())
         {
-            self::createUniqueUserFeed(
+            Feeds::createUniqueUserFeed(
                 $request->input('url'),
                 $request->input('name'),
                 true
@@ -251,38 +250,8 @@ class AppController extends Controller
         }
     }
 
-    private static function createUniqueUserFeed($sFeedUrl, $sFeedName, $bScheduleImmediatePull = true)
-    {
-        // creates a feed url, if there's no feed for current user for url, create it
 
-        // get id of a feed (new or existing)
-        $oFeed = Feed::where("url", $sFeedUrl)->first();
 
-        $iFeedId = -1;
-
-        if(!isset($oFeed)){
-            $oFeed = new Feed;
-
-            $oFeed->url = $sFeedUrl;
-
-            $oFeed->save();
-            $iFeedId = $oFeed->id;
-
-            // pull it
-            if($bScheduleImmediatePull){
-                // make sure it's in line to be crawled, unless we're calling this from a test stub
-                self::scheduleFeedPull($iFeedId);
-            }
-        }else{
-            $iFeedId = $oFeed->id;
-        }
-
-        $oSubscriber = new FeedSubscriber;
-        $oSubscriber->feed_id = $iFeedId;
-        $oSubscriber->user_id = Auth::id();
-        $oSubscriber->name = $sFeedName;
-        $oSubscriber->save();
-    }
     public static function scheduleFeedPull($iFeedId, $iMinutes = 0)
     {
         $oTask = new Task;
@@ -291,4 +260,6 @@ class AppController extends Controller
         $oTask->detail = $iFeedId;
         $oTask->save();
     }
+
+
 }
