@@ -12,4 +12,9 @@ class Feed extends Model
     {
     	return $this->hasMany('App\Models\Feeds\FeedItem')->orderBy('pubDate', 'desc');
     }
+
+    public function subscribers()
+    {
+    	return $this->hasMany('App\Models\Feeds\FeedSubscriber', 'feed_id', 'id');
+    }
 }

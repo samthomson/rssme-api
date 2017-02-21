@@ -25,34 +25,31 @@ abstract class TestCase extends Illuminate\Foundation\Testing\TestCase
 
     public function setUp()
     {
+        $this->refreshApplication();
         parent::setUp();
 
         Artisan::call('migrate');
         Artisan::call('db:seed');
 
-        // test files
-        $saImages = [
-            'logo' => 'png',
-            'branding1' => 'jpg',
-            'branding2' => 'jpg',
-            'pdf' => 'pdf',
-            'pdf-disguised' => 'jpg',
-            'corrupt' => 'jpg'
-        ];
-
-        foreach ($saImages as $sName => $sExt) {
-            \File::copy(
-                public_path()."\seed\\".$sName.".".$sExt,
-                public_path()."\seed\\".$sName."-test.".$sExt
-            );
-        }
-
     }
 
     public function tearDown()
     {
-        /*  */
-        //Artisan::call('migrate:refresh');
-        //parent::tearDown();
+        Artisan::call('migrate:refresh');
+        parent::tearDown();
+    }
+
+    public function getHeaderForTest($sEmail = "test@email.com", $sPassword = "password") {
+
+        return [
+            'HTTP_AUTHORIZATION' => 'Bearer ' . $this->login($sEmail, $sPassword)
+        ];
+    }
+
+    public function login($sEmail = "test@email.com", $sPassword = "password")
+    {
+        $response = $this->call('POST', '/app/auth/login', ["email" => $sEmail, "password" => $sPassword]);
+
+        return json_decode($response->getContent())->token;
     }
 }

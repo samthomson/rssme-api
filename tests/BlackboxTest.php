@@ -47,7 +47,69 @@ class BlackboxTest extends TestCase
 
     public function testAddFeed()
     {
-        return $this->assertTrue(true);
+        // shouldn't work if not logged in
+        $this->json('POST', $this->sAPIPrefix.'/feeds/new');
+        $this->assertResponseStatus(400); // no token
+
+        // shouldn't work if logged in but with invalid data
+        $this->login();
+
+        $sHeader = parent::getHeaderForTest();
+
+        // missing data
+        $response = $this->call(
+           'POST',
+           $this->sAPIPrefix.'/feeds/new',
+           [],
+           [],
+           [],
+           $sHeader
+        );
+        $this->assertEquals(422, $response->status()); // bad or missing data
+
+        // bad data - malformed url
+        $response = $this->call(
+           'POST',
+           $this->sAPIPrefix.'/feeds/new',
+           [
+               'name' => 'digg',
+               'url' => 'digg.com/rss/top.rss'
+           ],
+           [],
+           [],
+           $sHeader
+        );
+        $this->assertEquals(422, $response->status()); // bad or missing data
+
+
+        // should return 200 if logged in and data valid
+        $response = $this->call(
+           'POST',
+           $this->sAPIPrefix.'/feeds/new',
+           [
+               'name' => 'digg',
+               'url' => 'http://digg.com/rss/top.rss'
+           ],
+           [],
+           [],
+           $sHeader
+        );
+        $this->assertEquals(200, $response->status()); // bad or missing data
+
+        // feed should be created in db
+        $oFeed = \App\Models\Feeds\Feed::with('subscribers')->where('url','http://digg.com/rss/top.rss')->first();
+        $this->assertTrue(isset($oFeed));
+
+        $oSubscriber = $oFeed->subscribers[0];
+
+        $this->assertTrue(isset($oSubscriber));
+        $this->assertEquals($oSubscriber->name, 'digg');
+
+        // pull task should be in db
+        $oTask = \App\Models\Task::where('detail', $oFeed->id)->first();
+
+        $this->assertTrue(isset($oTask));
+
     }
 
     public function testDeleteFeed()

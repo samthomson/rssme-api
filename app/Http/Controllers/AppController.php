@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Feeds\Feed;
 use App\Models\Feeds\FeedSubscriber;
 use App\Models\Feeds\FeedItem;
+use App\Models\Task;
 
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
@@ -16,6 +17,8 @@ use Hash;
 use Illuminate\Http\Request;
 use App\User;
 use Auth;
+
+use Carbon\Carbon;
 
 
 class AppController extends Controller
@@ -228,17 +231,23 @@ class AppController extends Controller
 
     public function newFeed(Request $request)
     {
-        if ($request->has('url') && $request->has('name'))
+
+        $validator = Validator::make($request->all(), [
+            'url' => 'required|url',
+            'name' => 'required'
+        ]);
+
+        if (!$validator->fails())
         {
             self::createUniqueUserFeed(
                 $request->input('url'),
                 $request->input('name'),
-                false
+                true
             );
 
             return response("ok", 200);
         }else{
-            return response("missing data", 200);
+            return response("bad or missing data", 422);
         }
     }
 
