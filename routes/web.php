@@ -15,6 +15,9 @@
 //header("Access-Control-Allow-Origin: *");
 //header("Access-Control-Allow-Headers: Content-Type, X-Auth-Token, Origin, Authorization");
 
+// header('Access-Control-Allow-Origin: *');
+// header("Access-Control-Allow-Headers: Content-Type, X-Auth-Token, Origin, Authorization");
+
 Route::get('/', function () {
     echo 'api root';
 });

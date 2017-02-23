@@ -9,7 +9,8 @@
         "laravel/framework": "5.3.*",
         "tymon/jwt-auth": "0.5.*",
         "nesbot/carbon": "^1.22",
-        "intervention/image": "^2.3"
+        "intervention/image": "^2.3",
+        "barryvdh/laravel-cors": "^0.8.6"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

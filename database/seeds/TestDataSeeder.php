@@ -10,6 +10,8 @@ use App\Models\Feeds\FeedSubscriber;
 
 use App\Http\Controllers\Feeds;
 
+use Carbon\Carbon;
+
 class TestDataSeeder extends Seeder
 {
     /**
@@ -28,17 +30,34 @@ class TestDataSeeder extends Seeder
         $oUser->save();
 
 
+        // add a feed
         $oFeed = new Feed;
         $oFeed->url = 'http://samt.testfeed.xml';
         $oFeed->save();
 
         $iFeedId = $oFeed->id;
 
+        // subscribe user to that feed
         $oSubscriber = new FeedSubscriber;
         $oSubscriber->feed_id = $iFeedId;
         $oSubscriber->user_id = $oUser->id;
         $oSubscriber->name = 'sam pretend feed';
         $oSubscriber->save();
+
+        // make some items for that feed
+        for($iItem = 0; $iItem < 5; $iItem++)
+        {
+            // 'url', 'title', 'date', 'thumb', 'feedthumb'
+            $oFeedItem = new FeedItem;
+            $oFeedItem->feed_id = $iFeedId;
+            $oFeedItem->url = $oFeed->url."/item/".$iItem;
+            $oFeedItem->title = "test item ".$iItem;
+            $oFeedItem->guid = $iItem."_".uniqid();
+            $oFeedItem->pubDate = Carbon::now()->addDay(-1 * $iItem);
+            $oFeedItem->thumb = $oFeed->url."/item/".$iItem."thumb.jpg";
+            //$oFeedItem->feedthumb = $oFeed->url."/item/".$iItem."feedthumb.jpg";
+            $oFeedItem->save();
+        }
 
     }
 }

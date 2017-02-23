@@ -64,6 +64,31 @@ class BlackboxTest extends TestCase
              );
         $this->assertResponseStatus(200);
     }
+    public function testGetFeedItems()
+    {
+        $sRouteURl = $this->sAPIPrefix.'/feeditems';
+        // shouldn't work if not logged in
+        $this->json('GET', $sRouteURl);
+        $this->assertResponseStatus(400); // no token
+
+        $this->login();
+        $sHeader = parent::getHeaderForTest();
+
+
+        // should return 200 if logged in and data valid
+        $this->json('GET', $sRouteURl, [], $sHeader)
+             ->seeJsonStructure(
+                 [
+                     'feeditems' => [
+                         '*' => [
+                             'url', 'title', 'date', 'thumb', 'feedthumb'
+                         ]
+                     ]
+                 ]
+             );
+        $this->assertResponseStatus(200);
+    }
+
 
     public function testAddFeed()
     {

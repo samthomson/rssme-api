@@ -232,24 +232,17 @@ class AppController extends Controller
         );
     }
 
-    public function getFeedItems()
+    public function getFeedItems(Request $request)
     {
         $oUser = Auth::user()->load('subscriptions');
 
-        /*
-        return response()->json(
-            [
-                'subscriptions' => $oUser->subscriptions
-            ]
-        );
 
-        */
         $oQuery = DB::table('feeditems', function($join)
             {
                 $join->on('feed_subscriber.feed_id', '=', 'feeditems.feed_id')/*
                     ->where('feed_user.feed_id', '=', 'feeditems.id')*/;
 
-                if(Request::has('feed')){
+                if($request->has('feed')){
                     $join->where("feeditems.feed_id", "=", Request::get('feed'));
                 }
             })
@@ -258,7 +251,49 @@ class AppController extends Controller
         $oQuery->orderBy('feeditems.pubDate', 'desc')
             ->select(['feeditems.url as url', 'feeditems.title as title', 'feeds.url as feedurl', 'feeds.id as feed_id', 'feeditems.pubDate as date', 'feed_subscriber.name as name', 'feeditems.thumb as thumb', 'feeds.thumb as feedthumb']);
 
-        $maFeedItems = $oQuery->get();
+
+        $iPage = $request->input("page", 1);
+        $iPerPage = 20;
+
+        $iTotalItems = 0;
+
+        //$maFeedItems = $oQuery->skip(($iPage * $iPerPage)-$iPerPage)->take($iPerPage)->get();
+        $maFeedItems = $oQuery->get()->all();
+
+        #print_r($maFeedItems);die();
+
+        $iTotalItems = count($maFeedItems);
+        $iTotalPages = ceil($iTotalItems / $iPerPage);
+
+        $maFeedItems = array_slice($maFeedItems, ($iPage * $iPerPage)-$iPerPage, $iPerPage);
+
+
+        $oaFeedItems = [];
+
+        foreach ($maFeedItems as $oFeedItem) {
+
+            $sDate = '';
+            $oDate = new Carbon($oFeedItem->date);
+            if($oDate->isToday())
+                // 10:41 pm
+                $sDate = $oDate->format('g:i a');
+            else
+                // Aug 12
+                $sDate = $oDate->format('M j');
+
+            array_push($oaFeedItems,
+                [
+                "url" => $oFeedItem->url,
+                "title" => $oFeedItem->title,
+                "feedurl" => $oFeedItem->feedurl,
+                "feed_id" => $oFeedItem->feed_id,
+                "date" => $sDate,
+                "name" => $oFeedItem->name,
+                "thumb" => $oFeedItem->thumb !== '' ? $oFeedItem->thumb : $oFeedItem->feedthumb,
+                "feed_thumb" => $oFeedItem->feedthumb
+                ]
+            );
+        }
 
         return response()->json(
             [
