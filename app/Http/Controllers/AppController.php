@@ -255,6 +255,11 @@ class AppController extends Controller
             }
             */
 
+            if($request->has('feed')){
+                $oQuery->where("feeds.id", "=", $request->input('feed'));
+            }
+
+
         $oQuery->orderBy('feeditems.pubDate', 'desc')
             ->select(['feeditems.url as url', 'feeditems.title as title', 'feeds.url as feedurl', 'feeds.id as feed_id', 'feeditems.pubDate as date', 'feed_subscriber.name as name', 'feeditems.thumb as thumb', 'feeds.thumb as feedthumb', 'feeditems.id as id']);
 
