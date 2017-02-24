@@ -320,9 +320,14 @@ class AppController extends Controller
                 true
             );
 
-            return response("ok", 200);
+            return response()->json(['success' => true]);
         }else{
-            return response("bad or missing data", 422);
+            return response()->json(
+                [
+                    'success' => false,
+                    'errors' => $validator->errors()->all()
+                ]
+            );
         }
     }
 

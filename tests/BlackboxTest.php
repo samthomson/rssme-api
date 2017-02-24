@@ -102,32 +102,37 @@ class BlackboxTest extends TestCase
         $sHeader = parent::getHeaderForTest();
 
         // missing data
-        $response = $this->call(
-           'POST',
-           $this->sAPIPrefix.'/feeds/new',
-           [],
-           [],
-           [],
-           $sHeader
-        );
-        $this->assertEquals(422, $response->status()); // bad or missing data
+        $this->json(
+            'POST',
+            $this->sAPIPrefix.'/feeds/new',
+            [],
+            $sHeader
+            )
+             ->seeJson([
+                 'success' => false,
+             ]);
 
         // bad data - malformed url
-        $response = $this->call(
-           'POST',
-           $this->sAPIPrefix.'/feeds/new',
-           [
-               'name' => 'digg',
-               'url' => 'digg.com/rss/top.rss'
-           ],
-           [],
-           [],
-           $sHeader
-        );
-        $this->assertEquals(422, $response->status()); // bad or missing data
+        $this->json(
+            'POST',
+            $this->sAPIPrefix.'/feeds/new',
+            [
+                'name' => 'digg',
+                'url' => 'digg.com/rss/top.rss'
+            ],
+            $sHeader
+            )
+            ->seeJson([
+                'success' => false,
+            ])
+            ->seeJsonStructure([
+                'success', 'errors'
+            ]);
+
 
 
         // should return 200 if logged in and data valid
+        /*
         $response = $this->call(
            'POST',
            $this->sAPIPrefix.'/feeds/new',
@@ -140,6 +145,23 @@ class BlackboxTest extends TestCase
            $sHeader
         );
         $this->assertEquals(200, $response->status()); // bad or missing data
+        */
+        $this->json(
+            'POST',
+            $this->sAPIPrefix.'/feeds/new',
+            [
+                'name' => 'digg',
+                'url' => 'http://digg.com/rss/top.rss'
+            ],
+            $sHeader
+            )
+             ->seeJsonStructure(
+                 [
+                     'success'
+                 ]
+             );
+        $this->assertResponseStatus(200);
+
 
         // feed should be created in db
         $oFeed = \App\Models\Feeds\Feed::with('subscribers')->where('url','http://digg.com/rss/top.rss')->first();
