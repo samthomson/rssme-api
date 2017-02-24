@@ -13,7 +13,7 @@ use App\Library\Helper;
 use App\Http\Controllers\Feeds;
 
 class Helper
-{    
+{
 
     public static function sRandomUserFeedColour()
     {
@@ -24,17 +24,17 @@ class Helper
         'emerald' => '2ecc71',
         'peter river' => '3498db',
         'amethyst' => '9b59b6',
-        'wet asphalt' => '34495e',        
+        'wet asphalt' => '34495e',
         'green sea' => '16a085',
         'nephritus' => '27ae60',
         'belize hole' => '2980b9',
         'wisteria' => '8e44ad',
-        'midnight blue' => '2c3e50',        
+        'midnight blue' => '2c3e50',
         'sun flower' => 'f1c40f',
         'carrot' => 'e67e22',
         'alizarin' => 'e74c3c',
         'clouds' => 'ecf0f1',
-        'concrete' => '95a5a6',        
+        'concrete' => '95a5a6',
         'orange' => 'f39c12',
         'pumpkin' => 'd35400',
         'pomegranite' => 'c0392b',
@@ -62,42 +62,48 @@ class Helper
 
         $oParsedFeed = self::oXMLStringToFeedObject($sXMLString);
 
-        // go through each feed item and save into our system
-        foreach($oParsedFeed->aoItems as $oDataOnlyFeedItem)
+        if(!is_null($oParsedFeed))
         {
-            $oFeedItem = new FeedItem;
-            $oFeedItem->title = $oDataOnlyFeedItem->title;
-            $oFeedItem->url = $oDataOnlyFeedItem->url;
-            $oFeedItem->guid = $oDataOnlyFeedItem->guid;
 
-            $oFeedItem->pubDate = $oDataOnlyFeedItem->pubDate;
+            // go through each feed item and save into our system
+            foreach($oParsedFeed->aoItems as $oDataOnlyFeedItem)
+            {
+                $oFeedItem = new FeedItem;
+                $oFeedItem->title = $oDataOnlyFeedItem->title;
+                $oFeedItem->url = $oDataOnlyFeedItem->url;
+                $oFeedItem->guid = $oDataOnlyFeedItem->guid;
+
+                $oFeedItem->pubDate = $oDataOnlyFeedItem->pubDate;
 
 
-            $oFeedItem->feed_id = $oRssFeed->id;
+                $oFeedItem->feed_id = $oRssFeed->id;
 
-            /*
-            if ($oParsedFeed->bPic) {
-                $oFeedItem->thumb = $oDataOnlyFeedItem->thumb;
+                /*
+                if ($oParsedFeed->bPic) {
+                    $oFeedItem->thumb = $oDataOnlyFeedItem->thumb;
+                }
+                */
+
+                $oFeedItem->save();
+
+
+                // schedule crunching our scraping thumb..
+                if (!$oParsedFeed->bPic) {
+                    // schedule for image scrape
+                    Feeds::scheduleFeedItemImageScrape($oFeedItem->id);
+                }else{
+                    // we have a thumbnail but need to make sure it's the correct size
+                    Feeds::scheduleThumbCrunch($oFeedItem->sPicURL, $oFeedItem->id);
+                }
+
+
+                $oFeedItem->save();
             }
-            */
 
-            $oFeedItem->save();
-
-
-            // schedule crunching our scraping thumb..
-            if (!$oParsedFeed->bPic) {
-                // schedule for image scrape
-                Feeds::scheduleFeedItemImageScrape($oFeedItem->id);
-            }else{
-                // we have a thumbnail but need to make sure it's the correct size
-                Feeds::scheduleThumbCrunch($oFeedItem->sPicURL, $oFeedItem->id);
-            }
-
-
-            $oFeedItem->save();
+            return $oParsedFeed;
+        }else{
+            return null;
         }
-
-        return $oParsedFeed;
     }
 
     public static function oXMLStringToFeedObject($sXMLString)
@@ -105,136 +111,57 @@ class Helper
         // take xml feed and turn into structured object
 
         // remove leading whitespace
-        $sXMLString = ltrim($sXMLString);
-
-        $bStopImport = false;
-        $xmlFeed = simplexml_load_string($sXMLString);
-
-        $oScrapedFeed = new \StdClass();
-        $oScrapedFeed->aoItems = [];
-        $oScrapedFeed->sFeedtype = "1.0";
-
-        $oScrapedFeed->bPic = false;
-        $oScrapedFeed->sPicURL = '';
-
-                            
-
-        $oType = $xmlFeed->attributes()->version;
-
-        if(isset($oType))
-            if($oType == "2.0")
-                $oScrapedFeed->sFeedtype = $oType;
-
-        switch($oScrapedFeed->sFeedtype)
+        try
         {
-            case "1.0":
+            $sXMLString = ltrim($sXMLString);
 
-                if(isset($xmlFeed->entry))
-                {
-                    foreach ($xmlFeed->entry as $oItem)
-                    {                        
-                        $oFeedItem = new \StdClass;
-                        $oFeedItem->title = $oItem->title;
-                        $oFeedItem->url = XMLHelper::sXMLAttributeValue($oItem->link, 'href');
-                        $oFeedItem->guid = $oItem->id;
+            $bStopImport = false;
 
-                        $oFeedItem->pubDate = Carbon::parse($oItem->updated)->toDateTimeString();
+            $xmlFeed = @simplexml_load_string($sXMLString);
 
-                        $oThumbItem = $oItem->{'media:thumbnail'};
+            if(!$xmlFeed)
+            {
+                return null;
+            }
 
-                        if (isset($oItem->children('media', true)->thumbnail))
-                        {
-                            if (isset($oItem->children('media', true)->thumbnail->attributes()->url))
-                            {
-                                // has an actual thumbnail
-                                $sPicUrl = (string)$oItem->children('media', true)->thumbnail->attributes()->url;
+            $oScrapedFeed = new \StdClass();
+            $oScrapedFeed->aoItems = [];
+            $oScrapedFeed->sFeedtype = "1.0";
 
-                                if($sPicUrl !== '')
-                                {
-                                    $oFeedItem->bPic = true;
-                                    $oFeedItem->sPicURL = $sPicUrl;
-                                }
-                            }
-                        }
+            $oScrapedFeed->bPic = false;
+            $oScrapedFeed->sPicURL = '';
 
-                        if (!$oScrapedFeed->bPic)
-                        {
-                            if (isset($oItem->enclosure))
-                            {
-                                if (isset($oItem->enclosure['url']))
-                                {
-                                    $sPicUrl = (string)$oItem->enclosure['url'];
 
-                                    if($sPicUrl !== '')
-                                    {
-                                        $oFeedItem->bPic = true;
-                                        $oFeedItem->sPicURL = $sPicUrl;
-                                    }
 
-                                }
-                            }
-                        }
+            $oType = $xmlFeed->attributes()->version;
 
-                        // still no pic? resort to scanning for img in item
-                        if (!$oScrapedFeed->bPic)
-                        {
-                            preg_match_all('/<img [^>]*src=["|\']([^"|\']+)/i', $oItem->asXml(), $matches);
-                            foreach ($matches[1] as $key => $value)
-                            {
-                                $sPicUrl = (string)$value;
+            if(isset($oType))
+                if($oType == "2.0")
+                    $oScrapedFeed->sFeedtype = $oType;
 
-                                if($sPicUrl !== '')
-                                {
-                                    $oFeedItem->bPic = true;
-                                    $oFeedItem->sPicURL = $sPicUrl;
-                                }
-                                break;
-                            }
-                        }
+            switch($oScrapedFeed->sFeedtype)
+            {
+                case "1.0":
 
-                        array_push($oScrapedFeed->aoItems, $oFeedItem);
-                    }
-                }
-
-                break;
-            case "2.0":
-                // look for feed image
-                if(isset($xmlFeed->channel->image->url)){
-                    $oScrapedFeed->thumb = $xmlFeed->channel->image->url;
-                }
-                // look for feed items
-                if(isset($xmlFeed->channel->item))
-                {
-                    foreach ($xmlFeed->channel->item as $oItem)
+                    if(isset($xmlFeed->entry))
                     {
+                        foreach ($xmlFeed->entry as $oItem)
+                        {
+                            $oFeedItem = new \StdClass;
+                            $oFeedItem->title = $oItem->title;
+                            $oFeedItem->url = XMLHelper::sXMLAttributeValue($oItem->link, 'href');
+                            $oFeedItem->guid = $oItem->id;
 
-                        $oFeedItem = new \StdClass;
-                        $oFeedItem->title = $oItem->title;
-                        $oFeedItem->url = $oItem->link;
-                        $oFeedItem->guid = $oItem->guid;
+                            $oFeedItem->pubDate = Carbon::parse($oItem->updated)->toDateTimeString();
 
-                        $oFeedItem->pubDate = Carbon::parse($oItem->pubDate)->toDateTimeString();
+                            $oThumbItem = $oItem->{'media:thumbnail'};
 
-                        $oThumbItem = $oItem->{'media:thumbnail'};
-
-                        if (isset($oItem->children('media', true)->thumbnail)) {
-
-                            if (isset($oItem->children('media', true)->thumbnail->attributes()->url)) {
-                                $sPicUrl = (string)$oItem->children('media', true)->thumbnail->attributes()->url;
-
-                                if($sPicUrl !== '')
+                            if (isset($oItem->children('media', true)->thumbnail))
+                            {
+                                if (isset($oItem->children('media', true)->thumbnail->attributes()->url))
                                 {
-                                    $oFeedItem->bPic = true;
-                                    $oFeedItem->sPicURL = $sPicUrl;
-                                }
-                            }
-                        }
-
-                        if (!$oScrapedFeed->bPic) {
-                            if (isset($oItem->enclosure)) {
-                                if (isset($oItem->enclosure['url'])) {
-
-                                    $sPicUrl = (string)$oItem->enclosure['url'];
+                                    // has an actual thumbnail
+                                    $sPicUrl = (string)$oItem->children('media', true)->thumbnail->attributes()->url;
 
                                     if($sPicUrl !== '')
                                     {
@@ -243,33 +170,124 @@ class Helper
                                     }
                                 }
                             }
-                        }
 
-                        // still no pic? resort to scanning for img in item
-                        if (!$oScrapedFeed->bPic)
-                        {
-                            preg_match_all('/<img [^>]*src=["|\']([^"|\']+)/i', $oItem->asXml(), $matches);
-                            foreach ($matches[1] as $key => $value)
+                            if (!$oScrapedFeed->bPic)
                             {
-                                $sPicUrl = (string)$value;
-
-                                if($sPicUrl !== '')
+                                if (isset($oItem->enclosure))
                                 {
-                                    $oFeedItem->bPic = true;
-                                    $oFeedItem->sPicURL = $sPicUrl;
+                                    if (isset($oItem->enclosure['url']))
+                                    {
+                                        $sPicUrl = (string)$oItem->enclosure['url'];
+
+                                        if($sPicUrl !== '')
+                                        {
+                                            $oFeedItem->bPic = true;
+                                            $oFeedItem->sPicURL = $sPicUrl;
+                                        }
+
+                                    }
                                 }
-
-
-                                break;
                             }
-                        }
 
-                        array_push($oScrapedFeed->aoItems, $oFeedItem);
+                            // still no pic? resort to scanning for img in item
+                            if (!$oScrapedFeed->bPic)
+                            {
+                                preg_match_all('/<img [^>]*src=["|\']([^"|\']+)/i', $oItem->asXml(), $matches);
+                                foreach ($matches[1] as $key => $value)
+                                {
+                                    $sPicUrl = (string)$value;
+
+                                    if($sPicUrl !== '')
+                                    {
+                                        $oFeedItem->bPic = true;
+                                        $oFeedItem->sPicURL = $sPicUrl;
+                                    }
+                                    break;
+                                }
+                            }
+
+                            array_push($oScrapedFeed->aoItems, $oFeedItem);
+                        }
                     }
-                }
-                break;
+
+                    break;
+                case "2.0":
+                    // look for feed image
+                    if(isset($xmlFeed->channel->image->url)){
+                        $oScrapedFeed->thumb = $xmlFeed->channel->image->url;
+                    }
+                    // look for feed items
+                    if(isset($xmlFeed->channel->item))
+                    {
+                        foreach ($xmlFeed->channel->item as $oItem)
+                        {
+
+                            $oFeedItem = new \StdClass;
+                            $oFeedItem->title = $oItem->title;
+                            $oFeedItem->url = $oItem->link;
+                            $oFeedItem->guid = $oItem->guid;
+
+                            $oFeedItem->pubDate = Carbon::parse($oItem->pubDate)->toDateTimeString();
+
+                            $oThumbItem = $oItem->{'media:thumbnail'};
+
+                            if (isset($oItem->children('media', true)->thumbnail)) {
+
+                                if (isset($oItem->children('media', true)->thumbnail->attributes()->url)) {
+                                    $sPicUrl = (string)$oItem->children('media', true)->thumbnail->attributes()->url;
+
+                                    if($sPicUrl !== '')
+                                    {
+                                        $oFeedItem->bPic = true;
+                                        $oFeedItem->sPicURL = $sPicUrl;
+                                    }
+                                }
+                            }
+
+                            if (!$oScrapedFeed->bPic) {
+                                if (isset($oItem->enclosure)) {
+                                    if (isset($oItem->enclosure['url'])) {
+
+                                        $sPicUrl = (string)$oItem->enclosure['url'];
+
+                                        if($sPicUrl !== '')
+                                        {
+                                            $oFeedItem->bPic = true;
+                                            $oFeedItem->sPicURL = $sPicUrl;
+                                        }
+                                    }
+                                }
+                            }
+
+                            // still no pic? resort to scanning for img in item
+                            if (!$oScrapedFeed->bPic)
+                            {
+                                preg_match_all('/<img [^>]*src=["|\']([^"|\']+)/i', $oItem->asXml(), $matches);
+                                foreach ($matches[1] as $key => $value)
+                                {
+                                    $sPicUrl = (string)$value;
+
+                                    if($sPicUrl !== '')
+                                    {
+                                        $oFeedItem->bPic = true;
+                                        $oFeedItem->sPicURL = $sPicUrl;
+                                    }
+
+
+                                    break;
+                                }
+                            }
+
+                            array_push($oScrapedFeed->aoItems, $oFeedItem);
+                        }
+                    }
+                    break;
+            }
+            return $oScrapedFeed;
+        } catch(Exception $e)
+        {
+            return null;
         }
-        return $oScrapedFeed;        
     }
 }
 

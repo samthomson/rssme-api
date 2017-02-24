@@ -37,7 +37,7 @@ class BlackboxTest extends TestCase
     public function testLogin()
     {
         // test login with mismatching email and pass, get
-        return $this->assertTrue(true);
+        return $this->assertTrue(false);
     }
 
     public function testGetSubscriptions()
@@ -158,6 +158,6 @@ class BlackboxTest extends TestCase
 
     public function testDeleteFeed()
     {
-        return $this->assertTrue(true);
+        return $this->assertTrue(false);
     }
 }

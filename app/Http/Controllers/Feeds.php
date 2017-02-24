@@ -388,8 +388,8 @@ class Feeds extends Controller
         }
     }
 
-    public static function pullFeed($id){
-
+    public static function pullFeed($id)
+    {
         $oFeed = Feed::find($id);
 
         if(isset($oFeed))
@@ -414,29 +414,40 @@ class Feeds extends Controller
 
                 $iItemsFetched = 0;
 
-                if(!empty($xmlFeed))
+                if(empty($xmlFeed))
                 {
+                    $oFeed->failing = true;
+                    $oFeed->save();
+                }else{
+
+
                     $oScrapedFeed = Helper::getFeedStructureFromXML($oFeed, $xmlFeed, $sStopAt);
 
-                    $iItemsFetched += count($oScrapedFeed->aoItems);
-                    if(isset($oScrapedFeed->thumb))
-                    {
-                        $oFeed->thumb = $oScrapedFeed->thumb;
+                    if(is_null($oScrapedFeed)) {
+                        $oFeed->failing = true;
+                        $oFeed->save();
+                    }else{
+
+                        // everything okay, parse feed
+
+                        $iItemsFetched += count($oScrapedFeed->aoItems);
+                        if(isset($oScrapedFeed->thumb))
+                        {
+                            $oFeed->thumb = $oScrapedFeed->thumb;
+                        }
+
+
+                        $oFeed->lastPulledCount = $iItemsFetched;
+
+                        $oFeed->hit_count = $oFeed->hit_count + 1;
+                        $oFeed->item_count = $oFeed->item_count + $iItemsFetched;
+
+                        $mytime = Carbon::now();
+
+                        $oFeed->lastPulled = $mytime->toDateTimeString();
+                        $oFeed->save();
                     }
-
-                }else{
-                    // todo: failed to fetch feed
                 }
-
-                $oFeed->lastPulledCount = $iItemsFetched;
-
-                $oFeed->hit_count = $oFeed->hit_count + 1;
-                $oFeed->item_count = $oFeed->item_count + $iItemsFetched;
-
-                $mytime = Carbon::now();
-
-                $oFeed->lastPulled = $mytime->toDateTimeString();
-                $oFeed->save();
             }catch(Exception $e){
                 echo "fetching feed (", $oFeed->id, ") ", $oFeed->url, " failed", "<br/>";
             }

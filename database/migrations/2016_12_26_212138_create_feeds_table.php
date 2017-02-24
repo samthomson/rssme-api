@@ -20,6 +20,7 @@ class CreateFeedsTable extends Migration
             $table->integer('hit_count')->default(0);
             $table->integer('lastPulledCount')->default(0)->unsigned();
             $table->integer('item_count')->default(0);
+            $table->boolean('failing')->default(FALSE);
             $table->dateTime('lastPulled')->nullable();
             $table->timestamps();
         });
