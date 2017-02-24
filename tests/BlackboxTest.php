@@ -81,7 +81,7 @@ class BlackboxTest extends TestCase
                  [
                      'feeditems' => [
                          '*' => [
-                             'url', 'title', 'date', 'thumb', 'feedthumb'
+                             'url', 'title', 'date', 'thumb', 'feedthumb', 'item_id'
                          ]
                      ]
                  ]

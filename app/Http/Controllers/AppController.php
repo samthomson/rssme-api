@@ -248,11 +248,18 @@ class AppController extends Controller
             ->join('feed_subscriber', "feeditems.feed_id", "=", "feed_subscriber.feed_id")
             ->join('feeds', "feeds.id", "=", "feed_subscriber.feed_id")
             ->where('feed_subscriber.user_id', '=', $oUser->id);
+
+            /*
+            if($request->has('cursor')){
+                $oQuery->where("feeditems.id", "<", $request->input('cursor'));
+            }
+            */
+
         $oQuery->orderBy('feeditems.pubDate', 'desc')
-            ->select(['feeditems.url as url', 'feeditems.title as title', 'feeds.url as feedurl', 'feeds.id as feed_id', 'feeditems.pubDate as date', 'feed_subscriber.name as name', 'feeditems.thumb as thumb', 'feeds.thumb as feedthumb']);
+            ->select(['feeditems.url as url', 'feeditems.title as title', 'feeds.url as feedurl', 'feeds.id as feed_id', 'feeditems.pubDate as date', 'feed_subscriber.name as name', 'feeditems.thumb as thumb', 'feeds.thumb as feedthumb', 'feeditems.id as id']);
 
 
-        $iPage = $request->input("page", 1);
+        $iPage = $request->input("cursor", 1);
         $iPerPage = 20;
 
         $iTotalItems = 0;
@@ -290,7 +297,8 @@ class AppController extends Controller
                 "date" => $sDate,
                 "name" => $oFeedItem->name,
                 "thumb" => $oFeedItem->thumb !== '' ? $oFeedItem->thumb : $oFeedItem->feedthumb,
-                "feed_thumb" => $oFeedItem->feedthumb
+                "feed_thumb" => $oFeedItem->feedthumb,
+                "item_id" => $oFeedItem->id
                 ]
             );
         }
